@@ -1,7 +1,7 @@
 # 🍃 Meu Projeto de Estudos: API REST com Java Spring
 
 ![Java](https://img.shields.io/badge/Java-17-blue?logo=java&logoColor=white)
-![Spring Boot](https://img.shields.io/badge/Spring%20Boot-2.7-green?logo=spring&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.5.4-green?logo=spring&logoColor=white)
 ![Maven](https://img.shields.io/badge/Maven-3.8-red?logo=apachemaven&logoColor=white)
 
 > Uma API REST desenvolvida para estudo, explorando boas práticas, arquitetura limpa e recursos do Spring Boot.
