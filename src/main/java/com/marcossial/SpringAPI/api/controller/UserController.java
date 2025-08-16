@@ -16,8 +16,8 @@ public class UserController {
     public UserController(UserService userService) {
         this.userService = userService;
     }
-    
-    @GetMapping
+
+    @GetMapping("/user")
     public User getUser(@RequestParam Integer id) {
         return userService.getUser(id);
     }
