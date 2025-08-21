@@ -1,22 +1,29 @@
 package com.marcossial.SpringAPI.api.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "age")
     private int age;
+
+    @Column(name = "email", unique = true)
     private String email;
 
+    public User() {
+        
+    }
+
     public User(String name, int age, String email) {
-        this.id = id;
         this.name = name;
         this.age = age;
         this.email = email;

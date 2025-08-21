@@ -3,55 +3,50 @@ package com.marcossial.SpringAPI.api.controller;
 import com.marcossial.SpringAPI.api.model.User;
 import com.marcossial.SpringAPI.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/users")
 public class UserController {
 
-    private UserService userService;
+    private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    // Método para criar um usuário
     @PostMapping
-    public User addUser(@RequestBody User user) {
-        return userService.addUser(user);
+    public ResponseEntity<Void> addUser(@RequestBody User user) {
+        userService.addUser(user);
+        return ResponseEntity.ok().build();
     }
 
-    // Método para listar todos os usuários
+    @GetMapping("/all")
+    public ResponseEntity<List<User>> getAllUsers() {
+        return ResponseEntity.ok(userService.getAllUsers());
+    }
+
     @GetMapping
-    public List<User> getAllUsers() {
-        return userService.getAllUsers();
+    public ResponseEntity<User> getUserById(@RequestParam Long id) {
+        return ResponseEntity.ok(userService.findById(id));
     }
 
-    // Método para buscar um usuário por ID
-    @GetMapping("/{id}")
-    public User getUserById(@PathVariable Long id) {
-        return userService.findById(id);
+    @PutMapping
+    public ResponseEntity<Void> updateUser(@RequestParam Long id,
+                                           @RequestBody User user) {
+        userService.updateUser(id, user);
+
+        return ResponseEntity.ok().build();
     }
 
-    // Método para atualizar um usuário
-    @PostMapping("/{id}")
-    public User updateUser(@PathVariable Long id, @RequestBody User userDetails) {
-        User user = getUserById(id);
-
-        user.setName(userDetails.getName());
-        user.setAge(userDetails.getAge());
-        user.setEmail(userDetails.getEmail());
-
-        return userService.updateUser(user);
-    }
-
-    // Método para excluir um usuário
-    @DeleteMapping("/{id}")
-    public void deleteUser(@PathVariable Long id) {
+    @DeleteMapping
+    public ResponseEntity<Void> deleteUser(@RequestParam Long id) {
         userService.deleteUser(id);
+        return ResponseEntity.ok().build();
     }
 
 }
