@@ -13,12 +13,13 @@
 - **Linguagem:** Java 17
 - **Framework:** Spring Boot
 - **Build:** Maven
+- **Banco de Dados:** H2
 
 ---
 
 ## 🚀 Funcionalidades
 
-- 🔹 CRUD completo de `User` (em desenvolvimento)
+- 🔹 CRUD completo de `User`
 - 🔹 Endpoints RESTful seguindo boas práticas de design
 - 🔹 Estrutura organizada em camadas (Controller, Service, Model)
 
@@ -38,3 +39,12 @@ src/
 │     └─ application.properties  # Configurações da aplicação
 └─ test/  # Testes unitários e de integração
 ```
+
+## 📝 Próximos passos
+
+- Documentar os endpoints utilizando Swagger
+- Utilizar um banco de dados persistente
+- Tratamento de exceções
+- Adicionar JWT para autenticação
+- separar entidades expostas na API por DTOs (Data Transfer Objects)
+- Frontend
