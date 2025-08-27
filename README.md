@@ -13,7 +13,7 @@
 - **Linguagem:** Java 17
 - **Framework:** Spring Boot
 - **Build:** Maven
-- **Banco de Dados:** H2
+- **Banco de Dados:** MySQL
 
 ---
 
@@ -43,7 +43,6 @@ src/
 ## 📝 Próximos passos
 
 - Documentar os endpoints utilizando Swagger
-- Utilizar um banco de dados persistente
 - Tratamento de exceções
 - Adicionar JWT para autenticação
 - separar entidades expostas na API por DTOs (Data Transfer Objects)
